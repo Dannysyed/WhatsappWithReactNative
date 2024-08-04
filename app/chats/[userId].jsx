@@ -6,8 +6,12 @@ import { SafeAreaView } from "react-native-safe-area-context";
 const UserChat = () => {
   let { userId } = useLocalSearchParams();
   return (
-    <SafeAreaView>
-      <Text>{userId}UserChat</Text>
+    <SafeAreaView className="h-full bg-primary">
+      <View className="flex flex-1 justify-center items-center">
+        <Text className="font-psemibold text-2xl">
+          The chat Id for this user is {userId}
+        </Text>
+      </View>
     </SafeAreaView>
   );
 };

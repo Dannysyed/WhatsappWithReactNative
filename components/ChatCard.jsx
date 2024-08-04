@@ -10,7 +10,7 @@ import {
 import React from "react";
 import { useRouter, usePathname } from "expo-router";
 
-const ChatCard = ({ userName, ProfilePic }) => {
+const ChatCard = ({ userName, ProfilePic, chatID }) => {
   let pathname = usePathname();
   let userId = "12";
   const router = useRouter();
@@ -18,7 +18,7 @@ const ChatCard = ({ userName, ProfilePic }) => {
     <TouchableOpacity
       className="flex flex-row p-5 justify-between items-center border-b-2 border-gray-700 "
       onPress={() => {
-        router.push(`/chats/${userId}`);
+        router.push(`/chats/${chatID}`);
       }}
     >
       <Image

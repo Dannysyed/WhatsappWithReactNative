@@ -5,10 +5,10 @@ import ChatCard from "../../components/ChatCard";
 
 const Chats = () => {
   let users = [
-    { userName: "Daniel", ProfilePic: "..." },
-    { userName: "Azhar", ProfilePic: "..." },
-    { userName: "Sania", ProfilePic: "..." },
-    { userName: "Valentina", ProfilePic: "..." },
+    { userName: "Daniel", ProfilePic: "...", id: "1" },
+    { userName: "Azhar", ProfilePic: "...", id: "12" },
+    { userName: "Sania", ProfilePic: "...", id: "2" },
+    { userName: "Valentina", ProfilePic: "...", id: "4" },
   ];
   return (
     <SafeAreaView className="h-full bg-dark">
@@ -17,7 +17,11 @@ const Chats = () => {
           data={users}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
-            <ChatCard userName={item.userName} ProfilePic={item.ProfilePic} />
+            <ChatCard
+              userName={item.userName}
+              ProfilePic={item.ProfilePic}
+              chatID={item.id}
+            />
           )}
           ListHeaderComponent={() => (
             <View>
