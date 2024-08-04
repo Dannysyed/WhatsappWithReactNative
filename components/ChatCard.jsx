@@ -1,9 +1,26 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import {
+  Button,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  TouchableOpacityBase,
+  View,
+} from "react-native";
 import React from "react";
+import { useRouter, usePathname } from "expo-router";
 
 const ChatCard = ({ userName, ProfilePic }) => {
+  let pathname = usePathname();
+  let userId = "12";
+  const router = useRouter();
   return (
-    <View className="flex flex-row p-5 justify-between items-center border-b-2 border-gray-700">
+    <TouchableOpacity
+      className="flex flex-row p-5 justify-between items-center border-b-2 border-gray-700 "
+      onPress={() => {
+        router.push(`/chats/${userId}`);
+      }}
+    >
       <Image
         className="text-white border-2 border-gray-50 h-12 w-12 rounded-full"
         source={{
@@ -16,8 +33,9 @@ const ChatCard = ({ userName, ProfilePic }) => {
         </Text>
         <Text className="text-gray-400 font-plight ">new message...</Text>
       </View>
+
       <Text className="text-white">2021-10-12</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
