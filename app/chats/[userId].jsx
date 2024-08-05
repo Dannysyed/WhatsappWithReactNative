@@ -1,8 +1,9 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { useLocalSearchParams } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Yourchats from "../../components/Yourchats";
+import { Ionicons } from "@expo/vector-icons";
 
 const UserChat = () => {
   let { userId } = useLocalSearchParams();
@@ -81,20 +82,45 @@ const UserChat = () => {
 
   let currentChat = chatData.filter((val) => val.userId === userId);
   return (
-    <SafeAreaView className="h-full bg-primary">
-      <View className="flex flex-1 justify-center items-center border-2 border-red-200">
+    <View className="h-full bg-secondary">
+      <View className="flex flex-1 justify-center items-center">
         <FlatList
           keyExtractor={(item) => item.userId}
           data={currentChat}
           renderItem={({ item }) => <Yourchats Message={item.lastMessage} />}
           ListHeaderComponent={() => (
-            <View className="bg-gray-500 flex w-96 justify-center items-center py-2">
-              <Text className="font-psemibold text-2xl">Your chats</Text>
+            <View className="bg-gray-500 flex w-[100vw] justify-around items-center py-8 rounded flex-row">
+              <Ionicons
+                name={"arrow-back"}
+                size={25}
+                color={"white"}
+                onPress={() => router.back()}
+                style={{ marginLeft: 10 }}
+              />
+              <Text className="font-psemibold text-2xl mx-auto">
+                {currentChat[0].userName}
+              </Text>
+              <View className="flex-row gap-4 mr-2">
+                <Ionicons
+                  name={"call"}
+                  size={25}
+                  color={"white"}
+                  onPress={() => router.back()}
+                  style={{ marginLeft: 10 }}
+                />
+                <Ionicons
+                  name={"videocam"}
+                  size={25}
+                  color={"white"}
+                  onPress={() => router.back()}
+                  style={{ marginLeft: 10 }}
+                />
+              </View>
             </View>
           )}
         />
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 
