@@ -6,8 +6,8 @@ import ChatCard from "../../components/ChatCard";
 const Chats = () => {
   let users = [
     { userName: "Daniel", ProfilePic: "...", id: "1" },
-    { userName: "Azhar", ProfilePic: "...", id: "12" },
-    { userName: "Sania", ProfilePic: "...", id: "2" },
+    { userName: "Azhar", ProfilePic: "...", id: "2" },
+    { userName: "Sania", ProfilePic: "...", id: "3" },
     { userName: "Valentina", ProfilePic: "...", id: "4" },
   ];
   return (
